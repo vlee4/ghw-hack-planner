@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hack Planner APP</title>
+    </head>
+    <body>
+        <h1>My Hack Planner</h1>
+        <ul>
+           {% for item in items %}
+           <li>
+            {{ item }}
+            <a href="/edit/{{loop.index}}">Edit</a>
+            <a href="/delete/{{loop.index}}">Delete</a>
+           </li>
+           {% endfor %}
+        </ul>
+        <form class="add-form" action="/add" method="post">
+            <input type="text" name="item" placeholder="Enter item">
+            <button type="submit">Add</button>
+        </form>
+       
+    </body>
+</html>

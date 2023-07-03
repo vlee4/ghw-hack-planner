@@ -13,17 +13,18 @@ def checklist():
     return render_template('checklist.html', items=items)
 
 
-@app.route("/add", method=['POST'])
+@app.route('/add', methods=['POST'])
 def add_item():
-    item = request.form('item')
+    item = request.form['item']
     items.append(item)
+    print(items)
     # not stored in a db yet
     return redirect('/')
 
 # UPDATE
 
 
-@app.route('/edit/<int:item_id>', method=['GET', 'POST'])
+@app.route('/edit/<int:item_id>', methods=['GET', 'POST'])
 def edit_item(item_id):
     item = items[item_id-1]
 
@@ -39,3 +40,7 @@ def edit_item(item_id):
 def delete_item(item_id):
     del items[item_id-1]
     return redirect('/')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
