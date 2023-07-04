@@ -2,17 +2,17 @@
 <html>
     <head>
         <title>Hack Planner APP</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static, filename='styles.css')  }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')  }}">
     </head>
     <body>
         <div class="container">
             <h1>My Hack Planner</h1>
-            <ul>
+            <ul class="checklist-items">
             {% for item in items %}
             <li>
-                {{ item }}
-                <a href="/edit/{{loop.index}}">Edit</a>
-                <a href="/delete/{{loop.index}}">Delete</a>
+                {{ item[1] }}
+                <a href="/edit/{{ item[0] }}">Edit</a>
+                <a href="/delete/{{ item[0] }}">Delete</a>
             </li>
             {% endfor %}
             </ul>
