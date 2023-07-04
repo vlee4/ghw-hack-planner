@@ -13,6 +13,7 @@
                 {{ item[1] }}
                 <a href="/edit/{{ item[0] }}">Edit</a>
                 <a href="/delete/{{ item[0] }}">Delete</a>
+                <button class="remind-button" onclick="setReminder('{{item[1]}}')">Remind</button>
             </li>
             {% endfor %}
             </ul>
@@ -21,5 +22,14 @@
                 <button type="submit">Add</button>
             </form>
        </div>
+
+       <script>
+            function setReminder(item) {
+                setTimeout(function() {
+                    var reminder = confirm("Reminder: " + item);
+                }, 5 * 1000); // 5 seconds
+            }
+        </script>
+
     </body>
 </html>

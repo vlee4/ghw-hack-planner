@@ -48,8 +48,8 @@ def delete_item(item_id):
     conn.commit()
     conn.close()
 
-
 # #By default, route uses 'GET' method
+
 
 @app.route('/')
 def checklist():
